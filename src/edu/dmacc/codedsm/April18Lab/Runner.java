@@ -11,6 +11,11 @@ public class Runner {
         System.out.println("Enter a number: ");
         Integer inputNumber = in.nextInt();
 
+        FizzBuzzService service = new FizzBuzzServiceImpl();    //in runner, code against interfaces, not implementation
+        SubmissionController controller = new SubmissionControllerImpl(service);
+
+        controller.submit(userName, inputNumber);
+
     }
 
 }
