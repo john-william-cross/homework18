@@ -8,10 +8,6 @@ public class SubmissionControllerImpl implements SubmissionController {
         this.service = service;
     }
 
-    @Override
-    public void submit(String userName, Integer inputNumber) {
-    }
-
     public InputView submit(Integer inputNumber, String userName) {
         Submission submission = new Submission();
         submission.setInputNumber(inputNumber);
