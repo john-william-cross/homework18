@@ -16,6 +16,9 @@ public class Runner {
         FizzBuzzService service = new FizzBuzzServiceImpl();    //in runner, code against interfaces, not implementation
         SubmissionController controller = new SubmissionControllerImpl(service);
 
+        InputView view = ((SubmissionControllerImpl) controller).submit(inputNumber, userName);
+        view.render();
+
         controller.submit(userName, inputNumber);
 
     }
