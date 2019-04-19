@@ -1,15 +1,14 @@
 package edu.dmacc.codedsm.April18Lab;
 
-public class FizzBuzzMapRepository {
-    private Result result;
+import java.util.HashMap;
+import java.util.Map;
 
-    public Result getResult() {
-        return result;
+public class FizzBuzzMapRepository implements MapRepository{
+
+    private Map<Integer, Result> storage = new HashMap<Integer, Result>();
+
+    @Override
+    public void save(Result result) {
+        storage.put(1, result);
     }
-
-    public void setResult(Result result) {
-        this.result = result;
-    }
-
-
 }
