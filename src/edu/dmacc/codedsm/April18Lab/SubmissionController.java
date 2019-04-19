@@ -1,6 +1,8 @@
 package edu.dmacc.codedsm.April18Lab;
 
-public class SubmissionController {
+public interface SubmissionController {
+
+     void submit(String userName, Integer inputNumber);
 
 
 
