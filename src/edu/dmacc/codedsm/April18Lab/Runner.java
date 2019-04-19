@@ -11,9 +11,8 @@ public class Runner {
         System.out.println("Enter a number: ");
         Integer inputNumber = in.nextInt();
 
-        MapRepository repository = new FizzBuzzMapRepository(); // we are wiring together all the objects that depend on each other. The controller needs the service to be able to comminicate to it; the service
-        //needs the repository to save, and the repository doesn't need anything else it just uses the dafault
-        FizzBuzzService service = new FizzBuzzServiceImpl();    //in runner, code against interfaces, not implementation
+        MapRepository repository = new FizzBuzzMapRepository();   //new implementation for homework
+        FizzBuzzService service = new FizzBuzzServiceImpl(repository);      //new implementation for homework
         SubmissionController controller = new SubmissionControllerImpl(service);
 
         InputView view = ((SubmissionControllerImpl) controller).submit(inputNumber, userName);
