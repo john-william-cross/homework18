@@ -12,17 +12,18 @@ public class Runner {
         System.out.println("Enter a number: ");
         Integer inputNumber = in.nextInt();
 
-        //MapRepository repository = new FizzBuzzMapRepository();   //new implementation for homework
-        AlternateFizzBuzzMapRepository alternateRepository = new AlternateFizzBuzzMapRepository();
-        //FizzBuzzService service = new FizzBuzzServiceImpl(repository);      //new implementation for homework
-        AlternateFizzBuzzServiceImpl alternateService = new AlternateFizzBuzzServiceImpl (alternateRepository);
-        //SubmissionController controller = new SubmissionControllerImpl(service);
-        SubmissionController controller = new SubmissionControllerImpl(alternateService);
+        MapRepository repository = new FizzBuzzMapRepository();   //new implementation for homework
+        MapRepository alternateRepository = new AlternateFizzBuzzMapRepository();
+        FizzBuzzService service = new FizzBuzzServiceImpl(repository);      //new implementation for homework
+        FizzBuzzService alternateService = new AlternateFizzBuzzServiceImpl (alternateRepository);
+        SubmissionController controller = new SubmissionControllerImpl(service);
+        SubmissionController controller2 = new SubmissionControllerImpl(alternateService);
 
         InputView view = controller.submit(inputNumber, userName);
         view.render();
-        alternateRepository.printResults();
 
+        InputView view2 = controller2.submit(inputNumber, userName);
+        view2.render();
 
     }
 }

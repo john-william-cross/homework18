@@ -1,0 +1,1 @@
+Result is Result{submission=Submission{inputNumber=3423, userName='Johnm'}, message='Buzz'}

@@ -10,10 +10,11 @@ public class AlternateFizzBuzzMapRepository implements MapRepository{
 
     @Override
     public void save(Result result) {
+        printResults(result);
         storage.put(1, result);
     }
 
-    public static void printResults(Result result) {
+    public void printResults(Result result) {
         PrintWriter writer = null;
         try {
             writer = new PrintWriter("fizzbuzz_result.txt");
@@ -26,31 +27,5 @@ public class AlternateFizzBuzzMapRepository implements MapRepository{
             }
         }
     }
-
-    public void printResults() {
-    }
 }
 
-/*
-private static void printResults(List<Card> playerHand, List<Card> dealerHand, String resultMessage) {
-        PrintWriter writer = null;
-        try {
-            writer = new PrintWriter("blackjack_log.txt");
-            writer.println("Player\'s hand is: ");
-            writer.println(showHand(playerHand));
-            writer.println("Player\'s score is");
-            writer.println(scoreHand(playerHand));
-            writer.println("Dealer\'s hand is: ");
-            writer.println(showHand(dealerHand));
-            writer.println("Dealer\'s score is");
-            writer.println(scoreHand(dealerHand));
-            writer.println(resultMessage);
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (writer != null) {
-                writer.close();
-            }
-        }
-    }
- */
