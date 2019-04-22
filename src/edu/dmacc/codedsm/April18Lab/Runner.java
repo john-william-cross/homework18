@@ -1,5 +1,6 @@
 package edu.dmacc.codedsm.April18Lab;
 
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class Runner {
@@ -11,15 +12,19 @@ public class Runner {
         System.out.println("Enter a number: ");
         Integer inputNumber = in.nextInt();
 
-        MapRepository repository = new FizzBuzzMapRepository();   //new implementation for homework
-        FizzBuzzService service = new FizzBuzzServiceImpl(repository);      //new implementation for homework
-        SubmissionController controller = new SubmissionControllerImpl(service);
+        //MapRepository repository = new FizzBuzzMapRepository();   //new implementation for homework
+        AlternateFizzBuzzMapRepository alternateRepository = new AlternateFizzBuzzMapRepository();
+        //FizzBuzzService service = new FizzBuzzServiceImpl(repository);      //new implementation for homework
+        AlternateFizzBuzzServiceImpl alternateService = new AlternateFizzBuzzServiceImpl (alternateRepository);
+        //SubmissionController controller = new SubmissionControllerImpl(service);
+        SubmissionController controller = new SubmissionControllerImpl(alternateService);
 
         InputView view = controller.submit(inputNumber, userName);
         view.render();
+        alternateRepository.printResults();
+
 
     }
-
 }
 
 
